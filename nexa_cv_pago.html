@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXA CV — Currículos Profissionais</title>
+<style>
+:root{--navy:#101b35;--blue:#315bea;--bg:#f3f6fb;--muted:#667085;--green:#087443}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#172033}
+header{background:var(--navy);color:white;padding:17px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:800;letter-spacing:1px}.logo span{color:#7ea1ff}
+header a{color:white;text-decoration:none;font-size:13px}
+.hero{padding:35px 5%;background:linear-gradient(120deg,#101b35,#233e7a);color:white}
+.hero h1{font-size:clamp(28px,5vw,43px);margin:0 0 10px}.hero p{max-width:690px;line-height:1.6;color:#e1e8ff}
+.pills{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.pill{background:#ffffff18;border:1px solid #ffffff40;padding:8px 12px;border-radius:30px;font-size:12px}
+main{max-width:1200px;margin:25px auto;padding:0 16px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+.panel{background:white;border-radius:16px;padding:22px;box-shadow:0 8px 28px #18274a12;min-width:0}
+h2{margin:0 0 16px;font-size:21px}.section{border-top:1px solid #e8edf5;padding-top:16px;margin-top:17px}
+label{display:block;font-size:13px;font-weight:700;margin:12px 0 6px;color:#344054}
+input,textarea,select{width:100%;padding:12px;border:1px solid #d4dbe7;border-radius:9px;font:inherit;background:white}
+textarea{min-height:80px;resize:vertical}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+button{border:0;border-radius:9px;padding:12px 16px;font-weight:700;cursor:pointer;font-size:14px}
+.primary{background:var(--blue);color:white}.secondary{background:#e9efff;color:#2345b8}.green{background:var(--green);color:white}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.templates{display:flex;gap:8px;flex-wrap:wrap}
+.templates button{border:1px solid #d7deeb;background:white}.templates button.active{border-color:var(--blue);background:#edf1ff;color:#2345b8}
+#resume{background:white;color:#202b40;min-height:600px;padding:30px;border:1px solid #e2e7f0;position:relative;overflow:hidden}
+.cvhead{border-bottom:3px solid var(--accent,#315bea);padding-bottom:17px;margin-bottom:20px}.cvhead h1{font-size:27px;margin:0 0 7px;color:#14213b;overflow-wrap:anywhere}
+.cvhead p{margin:4px 0;color:#596579;font-size:13px;overflow-wrap:anywhere}.cvsection{margin:18px 0}
+.cvsection h3{font-size:13px;text-transform:uppercase;letter-spacing:1.1px;color:var(--accent,#315bea);border-bottom:1px solid #dce3ee;padding-bottom:6px}
+.cvsection p{white-space:pre-wrap;line-height:1.55;font-size:14px;margin:8px 0;overflow-wrap:anywhere}
+.watermark{position:absolute;top:46%;left:8%;font-size:36px;font-weight:900;color:#d6dbe3;opacity:.6;transform:rotate(-30deg);pointer-events:none;display:none;white-space:nowrap}
+.hint{font-size:12px;color:var(--muted);line-height:1.5}.pricebox{background:#f0f5ff;border:1px solid #cddaff;padding:16px;border-radius:13px;margin-top:18px}
+.price{font-size:28px;font-weight:800;color:#183da8}.badge{display:inline-block;background:#e5f7ed;color:#087443;padding:6px 9px;border-radius:20px;font-size:12px;font-weight:bold}
+#payment{display:none;margin-top:18px;border:1px solid #cbd5e1;border-radius:14px;padding:18px;background:#fbfcff}
+.notice{background:#fff7e6;border:1px solid #f2d39b;padding:12px;border-radius:9px;font-size:13px;line-height:1.5}
+footer{text-align:center;padding:25px;color:#6b7280;font-size:13px}
+@media(max-width:800px){main{grid-template-columns:1fr}.row{grid-template-columns:1fr}#resume{padding:20px}.hero{padding:28px 5%}}
+@media print{body{background:white}header,.hero,.formpanel,footer,.previewtitle,.previewactions,.watermark{display:none!important}main{display:block;margin:0;padding:0}.panel{box-shadow:none;padding:0}#resume{border:0;min-height:0;padding:10mm}.cvhead h1{font-size:24px}}
+</style></head>
+<body>
+<header><div class="logo">NEXA <span>CV</span></div><a href="#criar">CRIAR CURRÍCULO</a></header>
+<section class="hero"><h1>O teu currículo profissional, pronto em minutos.</h1><p>Preenche os teus dados, escolhe um modelo e visualiza gratuitamente. Paga apenas quando quiseres desbloquear a versão PDF para candidatura.</p><div class="pills"><span class="pill">✓ Fácil no telemóvel</span><span class="pill">✓ Pré-visualização grátis</span><span class="pill">✓ Modelos profissionais</span></div></section>
+<main id="criar">
+<section class="panel formpanel"><h2>1. Cria o teu currículo</h2>
+<div class="templates"><button class="active" data-template="modern">Moderno</button><button data-template="classic">Clássico</button><button data-template="simple">Simples</button></div>
+<form id="cvform">
+<div class="section"><h3>Dados pessoais</h3><label>Nome completo *</label><input id="name" required placeholder="Nome e apelido">
+<div class="row"><div><label>Telefone / WhatsApp</label><input id="phone" placeholder="+244 9XX XXX XXX"></div><div><label>E-mail</label><input id="email" type="email" placeholder="nome@email.com"></div></div>
+<div class="row"><div><label>Localização</label><input id="location" placeholder="Uíge, Angola"></div><div><label>Cargo pretendido</label><input id="role" placeholder="Ex.: Assistente administrativo"></div></div>
+<label>LinkedIn / portfólio</label><input id="linkedin" placeholder="Link (opcional)"></div>
+<div class="section"><h3>Perfil profissional</h3><label>Resumo sobre ti</label><textarea id="summary" placeholder="Profissional dedicado, com competências em..."></textarea></div>
+<div class="section"><h3>Experiência</h3><label>Cargo, empresa, período e tarefas</label><textarea id="experience" placeholder="Assistente de vendas — Empresa X (2023–2025)&#10;Atendimento ao cliente e apoio às vendas."></textarea></div>
+<div class="section"><h3>Formação</h3><label>Escola, curso e ano</label><textarea id="education" placeholder="Ensino Médio — Escola X, 2024"></textarea></div>
+<div class="section"><h3>Competências e idiomas</h3><label>Competências</label><textarea id="skills" placeholder="Comunicação, informática, organização..."></textarea><label>Idiomas</label><input id="languages" placeholder="Português fluente, Inglês básico"></div>
+<div class="section"><h3>Outras informações</h3><label>Cursos, certificados e informações adicionais</label><textarea id="extra" placeholder="Curso de informática — 2025"></textarea></div>
+<div class="actions"><button type="button" class="secondary" id="clear">Limpar dados</button></div>
+</form>
+<div class="pricebox"><span class="badge">Pré-visualização gratuita</span><p>Cria e revê o teu currículo sem pagar. Para descarregar o PDF limpo, conclui o pagamento.</p><div class="price" id="priceLabel">Preço a configurar</div><p class="hint">O administrador deve configurar o preço e um meio de pagamento válido antes de receber clientes.</p><button class="primary" id="payStart" style="width:100%">Desbloquear PDF</button></div>
+<div id="payment"><h3>2. Pagamento para desbloquear</h3><div class="notice"><b>Configuração necessária:</b> este protótipo não está ligado a um processador de pagamentos. Os dados abaixo são instruções demonstrativas, não comprovam pagamento e não enviam dinheiro automaticamente.</div>
+<div id="payInstructions" style="margin-top:12px;line-height:1.7;font-size:14px"></div>
+<label>Referência / código da transação (opcional)</label><input id="txref" placeholder="Insere a referência do pagamento">
+<label>Nome usado no pagamento</label><input id="payer" placeholder="Nome do pagador">
+<button class="green" id="confirm" style="width:100%;margin-top:14px">Solicitar confirmação ao administrador</button>
+<p class="hint" id="payStatus"></p>
+</div>
+</section>
+<section class="panel previewpanel"><h2 class="previewtitle">Pré-visualização do currículo</h2><p class="hint previewtitle">A versão de demonstração apresenta uma marca de água. Após integrar pagamentos reais e validar a transação no servidor, o PDF pode ser desbloqueado.</p>
+<div id="resume"><div class="watermark" id="watermark">PRÉ-VISUALIZAÇÃO NEXA CV</div><div class="cvhead"><h1 id="out-name">O TEU NOME</h1><p id="out-role">Cargo ou área pretendida</p><p id="out-contact">Telefone • E-mail • Localização</p><p id="out-link"></p></div>
+<div class="cvsection" id="sec-summary"><h3>Perfil profissional</h3><p id="out-summary">O teu resumo aparecerá aqui.</p></div>
+<div class="cvsection" id="sec-experience"><h3>Experiência profissional</h3><p id="out-experience"></p></div>
+<div class="cvsection" id="sec-education"><h3>Formação académica</h3><p id="out-education"></p></div>
+<div class="cvsection" id="sec-skills"><h3>Competências</h3><p id="out-skills"></p></div>
+<div class="cvsection" id="sec-languages"><h3>Idiomas</h3><p id="out-languages"></p></div>
+<div class="cvsection" id="sec-extra"><h3>Cursos e informações adicionais</h3><p id="out-extra"></p></div></div>
+<div class="actions previewactions"><button class="primary" id="download">Descarregar PDF (pago)</button></div>
+</section></main>
+<footer>NEXA CV · Currículos profissionais para oportunidades em Angola.</footer>
+<script>
+/* CONFIGURAÇÃO DO ADMINISTRADOR: substitua os valores demonstrativos abaixo.
+   Não use uma confirmação feita no navegador como prova de pagamento.
+   Para cobrar de verdade, integre um gateway com verificação no servidor/webhook. */
+const CONFIG={priceKz:1000,paymentMethod:'Transferência / Multicaixa Express',accountName:'INSIRA O NOME DO TITULAR',paymentDetails:'INSIRA O NÚMERO OU REFERÊNCIA DE PAGAMENTO',adminWhatsApp:'244900000000'};
+const ids=['name','phone','email','location','role','linkedin','summary','experience','education','skills','languages','extra'];
+const val=id=>document.getElementById(id).value.trim();
+function update(){
+document.getElementById('out-name').textContent=val('name')||'O TEU NOME';
+document.getElementById('out-role').textContent=val('role')||'Cargo ou área pretendida';
+document.getElementById('out-contact').textContent=[val('phone'),val('email'),val('location')].filter(Boolean).join(' • ')||'Telefone • E-mail • Localização';
+document.getElementById('out-link').textContent=val('linkedin');
+[['summary','summary','O teu resumo aparecerá aqui.'],['experience','experience',''],['education','education',''],['skills','skills',''],['languages','languages',''],['extra','extra','']].forEach(([a,b,placeholder])=>{document.getElementById('out-'+b).textContent=val(a)||placeholder;document.getElementById('sec-'+b).style.display=val(a)||(b==='summary')?'block':'none';});
+}
+ids.forEach(id=>document.getElementById(id).addEventListener('input',update));
+document.querySelectorAll('[data-template]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-template]').forEach(b=>b.classList.remove('active'));btn.classList.add('active');let t=btn.dataset.template,r=document.getElementById('resume');r.style.setProperty('--accent',t==='classic'?'#222':t==='simple'?'#16806a':'#315bea');r.querySelector('.cvhead').style.borderBottom=t==='simple'?'1px solid #ddd':'3px solid var(--accent)';}));
+document.getElementById('priceLabel').textContent=CONFIG.priceKz.toLocaleString('pt-PT')+' Kz por currículo';
+document.getElementById('payInstructions').innerHTML='<b>Meio:</b> '+CONFIG.paymentMethod+'<br><b>Titular:</b> '+CONFIG.accountName+'<br><b>Dados de pagamento:</b> '+CONFIG.paymentDetails+'<br><b>Valor:</b> '+CONFIG.priceKz.toLocaleString('pt-PT')+' Kz';
+document.getElementById('payStart').onclick=()=>{if(!val('name')){alert('Preenche o teu nome primeiro.');document.getElementById('name').focus();return;}document.getElementById('payment').style.display='block';document.getElementById('payment').scrollIntoView({behavior:'smooth',block:'center'});};
+function requestPayment(){let msg='Olá, pretendo confirmar o pagamento do NEXA CV. Nome: '+val('name')+'; valor: '+CONFIG.priceKz+' Kz; referência: '+val('txref')+'; pagador: '+val('payer')+'. Por favor, confirme manualmente.';let url='https://wa.me/'+CONFIG.adminWhatsApp+'?text='+encodeURIComponent(msg);document.getElementById('payStatus').textContent='Será aberto o WhatsApp para solicitar confirmação manual. O PDF continua bloqueado até à integração e validação real do pagamento.';window.open(url,'_blank');}
+document.getElementById('confirm').onclick=requestPayment;
+function download(){if(!val('name')){alert('Preenche pelo menos o teu nome.');return;}alert('O descarregamento pago ainda está bloqueado neste protótipo. É necessário integrar um gateway de pagamento e validação segura no servidor para desbloquear o PDF após pagamento confirmado.');document.getElementById('payment').style.display='block';}
+document.getElementById('download').onclick=download;
+document.getElementById('clear').onclick=()=>{document.getElementById('cvform').reset();update();};
+update();document.getElementById('watermark').style.display='block';
+</script></body></html>
